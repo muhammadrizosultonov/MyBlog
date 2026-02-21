@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Projects" %} | {{ site_profile.name|default:"Muhammadrizo Sultonov" }}{% endblock %}
+
+{% block content %}
+<section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <h1 class="font-display text-3xl">{% trans "Projects" %}</h1>
+        <form class="glass-card flex w-full flex-col gap-3 border border-white/10 bg-white/[0.04] p-4 md:w-auto md:flex-row md:items-center">
+            <label class="text-xs uppercase tracking-[0.2em] text-white/50 md:mr-2">{% trans "Filter" %}</label>
+            <input
+                name="q"
+                value="{{ query }}"
+                placeholder="{% trans 'Search' %}"
+                class="w-full rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white placeholder:text-white/40 outline-none transition focus:border-brand/60 focus:ring-2 focus:ring-brand/30 md:w-52"
+            >
+            <div class="relative w-full md:w-56" data-dropdown>
+                <input type="hidden" name="category" value="{{ category }}">
+                <button
+                    type="button"
+                    data-trigger
+                    aria-expanded="false"
+                    class="flex w-full items-center justify-between rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white outline-none transition hover:border-white/20 focus:border-brand/60 focus:ring-2 focus:ring-brand/30"
+                >
+                    <span data-label class="truncate">
+                        {% if category %}
+                            {% for cat in categories %}
+                                {% if cat.slug == category %}{{ cat.name_i18n }}{% endif %}
+                            {% endfor %}
+                        {% else %}
+                            {% trans "All categories" %}
+                        {% endif %}
+                    </span>
+                    <span class="ml-3 text-white/60">▾</span>
+                </button>
+                <div
+                    data-menu
+                    class="absolute left-0 right-0 z-20 mt-2 hidden max-h-64 overflow-auto rounded-2xl border border-white/10 bg-slate-950/90 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur"
+                >
+                    <button type="button" data-value="" class="w-full rounded-xl px-3 py-2 text-left text-sm text-white/70 hover:bg-white/10">
+                        {% trans "All categories" %}
+                    </button>
+                    {% for cat in categories %}
+                        <button type="button" data-value="{{ cat.slug }}" class="w-full rounded-xl px-3 py-2 text-left text-sm text-white/70 hover:bg-white/10">
+                            {{ cat.name_i18n }}
+                        </button>
+                    {% endfor %}
+                </div>
+            </div>
+            <button class="rounded-full bg-brand px-5 py-2 text-xs font-semibold text-black transition hover:brightness-110">{% trans "Apply" %}</button>
+        </form>
+    </div>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+        {% for project in projects %}
+            <article class="glass-card" data-aos="fade-up">
+                <div class="text-lg font-semibold">{{ project.title_i18n }}</div>
+                <p class="mt-2 text-sm text-white/70">{{ project.description_i18n|truncatewords:18 }}</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                    {% for tech in project.tech_list %}
+                        <span class="rounded-full bg-white/10 px-3 py-1 text-xs">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+                <a href="/projects/{{ project.slug }}/" class="mt-4 inline-block text-sm text-brand">{% trans "View details" %} →</a>
+            </article>
+        {% empty %}
+            <div class="text-white/60">{% trans "No projects yet." %}</div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.querySelectorAll("[data-dropdown]").forEach((dropdown) => {
+        const trigger = dropdown.querySelector("[data-trigger]");
+        const menu = dropdown.querySelector("[data-menu]");
+        const label = dropdown.querySelector("[data-label]");
+        const hidden = dropdown.querySelector("input[type='hidden']");
+
+        const close = () => {
+            menu.classList.add("hidden");
+            trigger.setAttribute("aria-expanded", "false");
+        };
+
+        trigger.addEventListener("click", (event) => {
+            event.stopPropagation();
+            const isOpen = !menu.classList.contains("hidden");
+            document.querySelectorAll("[data-menu]").forEach((m) => m.classList.add("hidden"));
+            if (isOpen) {
+                close();
+            } else {
+                menu.classList.remove("hidden");
+                trigger.setAttribute("aria-expanded", "true");
+            }
+        });
+
+        menu.querySelectorAll("[data-value]").forEach((option) => {
+            option.addEventListener("click", () => {
+                hidden.value = option.getAttribute("data-value") || "";
+                label.textContent = option.textContent.trim();
+                close();
+            });
+        });
+
+        document.addEventListener("click", close);
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                close();
+            }
+        });
+    });
+</script>
+{% endblock %}

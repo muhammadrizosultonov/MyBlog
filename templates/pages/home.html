@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ profile.name|default:"Muhammadrizo Sultonov" }} | Home{% endblock %}
+
+{% block content %}
+<section class="mx-auto max-w-6xl px-6 py-20">
+    <div class="grid gap-12 md:grid-cols-2">
+        <div data-aos="fade-right">
+            <p class="text-sm uppercase tracking-[0.3em] text-brand">{% trans "Hello" %}</p>
+            {% trans "Backend Developer" as default_role %}
+            {% trans "Python · Django · DRF · FastAPI <br> Backend-focused Full-Stack Developer" as default_tagline %}
+            <h1 class="mt-4 font-display text-4xl md:text-6xl">{{ profile.name|default:"Muhammadrizo Sultonov" }}</h1>
+            <p class="mt-4 text-xl text-white/70">{{ profile.role_i18n|default:default_role }}</p>
+            <p class="mt-6 text-white/70">{{ profile.tagline_i18n|default:default_tagline }}</p>
+            <div class="mt-8 flex gap-4">
+                <a href="/projects/" class="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-black">{% trans "View Projects" %}</a>
+                <a href="/contact/" class="rounded-full border border-white/20 px-6 py-3 text-sm">{% trans "Contact" %}</a>
+            </div>
+        </div>
+        <div class="glass-card" data-aos="fade-left">
+            <div class="grid grid-cols-2 gap-4">
+                {% for stat in stats %}
+                    <div class="rounded-xl bg-white/5 p-4">
+                        <div class="text-2xl font-semibold">{{ stat.value }}{{ stat.suffix }}</div>
+                        <div class="text-xs text-white/60">{{ stat.label }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="mt-6 text-sm text-white/70">{% trans "Latest impact snapshot." %}</div>
+        </div>
+    </div>
+</section>
+
+<section class="mx-auto max-w-6xl px-6 py-14">
+    <div class="mb-6 flex items-center justify-between">
+        <h2 class="font-display text-2xl">{% trans "Featured Projects" %}</h2>
+        <a href="/projects/" class="text-sm text-brand">{% trans "See all" %}</a>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3">
+        {% for project in featured_projects %}
+            <article class="glass-card" data-aos="fade-up">
+                <div class="text-lg font-semibold">{{ project.title_i18n }}</div>
+                <p class="mt-2 text-sm text-white/70">{{ project.description_i18n|truncatewords:18 }}</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                    {% for tech in project.tech_list %}
+                        <span class="rounded-full bg-white/10 px-3 py-1 text-xs">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+                <a href="/projects/{{ project.slug }}/" class="mt-4 inline-block text-sm text-brand">{% trans "View details" %} →</a>
+            </article>
+        {% empty %}
+            <div class="text-white/60">{% trans "Add projects in the admin." %}</div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="mx-auto max-w-6xl px-6 py-14">
+    <div class="mb-6 flex items-center justify-between">
+        <h2 class="font-display text-2xl">{% trans "Latest Posts" %}</h2>
+        <a href="/blog/" class="text-sm text-brand">{% trans "Read more" %}</a>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2">
+        {% for post in latest_posts %}
+            <article class="glass-card" data-aos="fade-up">
+                <div class="text-lg font-semibold">{{ post.title_i18n }}</div>
+                <p class="mt-2 text-sm text-white/70">{{ post.excerpt_i18n|truncatewords:20 }}</p>
+                <a href="/blog/{{ post.slug }}/" class="mt-4 inline-block text-sm text-brand">{% trans "Open" %} →</a>
+            </article>
+        {% empty %}
+            <div class="text-white/60">{% trans "Publish your first post in the admin." %}</div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

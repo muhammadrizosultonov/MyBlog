@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ project.title_i18n }} | {% trans "Projects" %}{% endblock %}
+{% block meta_description %}{{ project.meta_description_i18n|default:project.description_i18n|truncatewords:25 }}{% endblock %}
+{% block og_title %}{{ project.meta_title_i18n|default:project.title_i18n }}{% endblock %}
+{% block og_description %}{{ project.meta_description_i18n|default:project.description_i18n|truncatewords:25 }}{% endblock %}
+
+{% block content %}
+<section class="mx-auto max-w-5xl px-6 py-16">
+    <a href="/projects/" class="text-sm text-brand">← {% trans "Back" %}</a>
+    <h1 class="mt-4 font-display text-4xl">{{ project.title_i18n }}</h1>
+    <p class="mt-4 text-white/70">{{ project.description_i18n }}</p>
+
+    <div class="mt-6 flex flex-wrap gap-2">
+        {% for tech in project.tech_list %}
+            <span class="rounded-full bg-white/10 px-3 py-1 text-xs">{{ tech }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="mt-6 flex gap-4">
+        {% if project.github_url %}<a href="{{ project.github_url }}" class="text-brand">GitHub</a>{% endif %}
+        {% if project.live_url %}<a href="{{ project.live_url }}" class="text-brand">{% trans "Live Demo" %}</a>{% endif %}
+    </div>
+
+    <div class="mt-10 grid gap-4 md:grid-cols-2">
+        {% for image in project.images.all %}
+            <div class="glass-card">
+                <img src="{{ image.image.url }}" alt="{{ image.alt_text }}" class="rounded-xl">
+            </div>
+        {% empty %}
+            <div class="text-white/60">{% trans "Add project images in the admin." %}</div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

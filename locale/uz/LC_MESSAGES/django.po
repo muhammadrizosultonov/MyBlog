@@ -1,0 +1,210 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: portfolio\n"
+"POT-Creation-Date: 2026-01-31 00:00+0000\n"
+"PO-Revision-Date: 2026-01-31 00:00+0000\n"
+"Language: uz\n"
+"Language-Team: \n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "About"
+msgstr "Haqida"
+
+msgid "Projects"
+msgstr "Loyihalar"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Contact"
+msgstr "Aloqa"
+
+msgid "Toggle"
+msgstr "Rejim"
+
+msgid "Hire me"
+msgstr "Meni yollang"
+
+msgid "Backend developer focused on Python, Django, DRF, and FastAPI."
+msgstr "Python, Django, DRF va FastAPI ga yo'naltirilgan backend dasturchi."
+
+msgid "Backend Developer"
+msgstr "Backend dasturchi"
+
+msgid "Python · Django · DRF · FastAPI <br> Backend-focused Full-Stack Developer"
+msgstr "Python · Django · DRF · FastAPI <br> Backendga yo'naltirilgan Full-Stack dasturchi"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Open AI assistant"
+msgstr "AI yordamchini ochish"
+
+msgid "AI Assistant"
+msgstr "AI Yordamchi"
+
+msgid "Powered by your portfolio data"
+msgstr "Portfel ma'lumotlari asosida"
+
+msgid "private"
+msgstr "yopiq"
+
+msgid "Ask about skills, projects, blog, or contact."
+msgstr "Ko'nikmalar, loyihalar, blog yoki aloqa haqida so'rang."
+
+msgid "Ask me anything..."
+msgstr "Istalgan savolni bering..."
+
+msgid "Send"
+msgstr "Yuborish"
+
+msgid "Thinking..."
+msgstr "O'ylayapman..."
+
+msgid "Hello"
+msgstr "Salom"
+
+msgid "View Projects"
+msgstr "Loyihalarni ko'rish"
+
+msgid "Latest impact snapshot."
+msgstr "So'nggi natijalar qisqacha."
+
+msgid "Featured Projects"
+msgstr "Tanlangan loyihalar"
+
+msgid "See all"
+msgstr "Barchasini ko'rish"
+
+msgid "View details"
+msgstr "Batafsil"
+
+msgid "Add projects in the admin."
+msgstr "Loyihalarni admin orqali qo'shing."
+
+msgid "Latest Posts"
+msgstr "So'nggi postlar"
+
+msgid "Read more"
+msgstr "Ko'proq o'qing"
+
+msgid "Open"
+msgstr "Ochish"
+
+msgid "Publish your first post in the admin."
+msgstr "Birinchi postingizni admin orqali chop eting."
+
+msgid "About me"
+msgstr "Men haqimda"
+
+msgid "I am a backend developer. My main technologies are Python, Django, DRF, and FastAPI. I also know a bit of full-stack. I was born on August 10, 2006 in Uchkuprik district, Fergana region, and now live in Tashkent. My goal is to reach senior+ level."
+msgstr "Men backend dasturchiman. Asosiy texnologiyalarim: Python, Django, DRF, FastAPI. Full-stack oz-moz bilaman. 2006-yil 10-avgustda Fargona viloyati Uchkoprik tumanida tugilganman, hozir Toshkentda yashayman. Maqsadim senior+ darajaga erishish."
+
+msgid "Download CV"
+msgstr "CV yuklab olish"
+
+msgid "Upload your CV at media/cv.pdf"
+msgstr "CV-ni media/cv.pdf ga yuklang"
+
+msgid "Skills"
+msgstr "Ko'nikmalar"
+
+msgid "Add skills in the admin."
+msgstr "Ko'nikmalarni admin orqali qo'shing."
+
+msgid "Timeline"
+msgstr "Tajriba"
+
+msgid "Add timeline entries in the admin."
+msgstr "Timeline yozuvlarini admin orqali qo'shing."
+
+msgid "Search"
+msgstr "Qidirish"
+
+msgid "All categories"
+msgstr "Barcha kategoriyalar"
+
+msgid "Filter"
+msgstr "Filtr"
+
+msgid "Apply"
+msgstr "Qo'llash"
+
+msgid "No projects yet."
+msgstr "Hali loyihalar yo'q."
+
+msgid "Back"
+msgstr "Orqaga"
+
+msgid "Live Demo"
+msgstr "Live demo"
+
+msgid "Add project images in the admin."
+msgstr "Loyiha rasmlarini admin orqali qo'shing."
+
+msgid "All tags"
+msgstr "Barcha teglar"
+
+msgid "Read"
+msgstr "O'qish"
+
+msgid "No posts yet."
+msgstr "Hali postlar yo'q."
+
+msgid "Contents"
+msgstr "Mundarija"
+
+msgid "Let's talk"
+msgstr "Keling, gaplashamiz"
+
+msgid "Share your idea and I'll get back to you."
+msgstr "G'oyangizni yuboring, men siz bilan bog'lanaman."
+
+msgid "Full name"
+msgstr "To'liq ism"
+
+msgid "Muhammadrizo Sultonov"
+msgstr "Muhammadrizo Sultonov"
+
+msgid "name@gmail.com"
+msgstr "name@gmail.com"
+
+msgid "Subject"
+msgstr "Mavzu"
+
+msgid "optional"
+msgstr "ixtiyoriy"
+
+msgid "Hiring / Project inquiry / Collaboration"
+msgstr "Ishga olish / Loyiha so'rovi / Hamkorlik"
+
+msgid "Message"
+msgstr "Xabar"
+
+msgid "Tell me about your project, timeline, and requirements..."
+msgstr "Loyihangiz, muddatlar va talablar haqida yozing..."
+
+msgid "Website"
+msgstr "Veb-sayt"
+
+msgid "Sending..."
+msgstr "Yuborilmoqda..."
+
+msgid "Send message"
+msgstr "Xabar yuborish"
+
+msgid "Full name must be at least 2 characters."
+msgstr "To'liq ism kamida 2 ta belgidan iborat bo'lishi kerak."
+
+msgid "Please use a Gmail address."
+msgstr "Iltimos, Gmail manzilidan foydalaning."
+
+msgid "Message must be at least 20 characters."
+msgstr "Xabar kamida 20 ta belgidan iborat bo'lishi kerak."
+
+msgid "Thanks! I'll reply within 24-48 hours."
+msgstr "Rahmat! 24-48 soat ichida javob beraman."
+
+msgid "Thanks! Your message was saved. Email notification is temporarily unavailable."
+msgstr "Rahmat! Xabaringiz saqlandi. Email xabarnoma vaqtincha ishlamayapti."

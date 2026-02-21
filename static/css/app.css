@@ -1,0 +1,50 @@
+:root {
+    --glass-border: rgba(255, 255, 255, 0.12);
+}
+
+body {
+    background: #0b1120;
+}
+
+.glass-card {
+    border: 1px solid var(--glass-border);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(24px);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.prose {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.prose a {
+    color: #00e5ff;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+    color: #ffffff;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.prose-invert {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.codehilite {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+}
+
+.htmx-indicator {
+    display: none;
+}
+
+.htmx-request.htmx-indicator {
+    display: block;
+}

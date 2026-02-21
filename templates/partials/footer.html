@@ -1,0 +1,15 @@
+{% load i18n %}
+<footer class="border-t border-white/10 py-10">
+    <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 text-sm text-white/70 md:flex-row md:items-center md:justify-between">
+        <div>
+            <div class="font-display text-lg text-white">{{ site_profile.name|default:"Muhammadrizo Sultonov" }}</div>
+            {% trans "Backend developer focused on Python, Django, DRF, and FastAPI." as default_tagline %}
+            <p>{{ site_profile.tagline_i18n|default:default_tagline }}</p>
+        </div>
+        <div class="flex gap-4">
+            {% if site_profile.github %}<a href="{{ site_profile.github }}" class="hover:text-brand">GitHub</a>{% endif %}
+            {% if site_profile.telegram %}<a href="https://t.me/{{ site_profile.telegram|cut:'@' }}" class="hover:text-brand">Telegram</a>{% endif %}
+            {% if site_profile.email %}<a href="mailto:{{ site_profile.email }}" class="hover:text-brand">{% trans "Email" %}</a>{% endif %}
+        </div>
+    </div>
+</footer>

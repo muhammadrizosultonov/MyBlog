@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "About" %} | {{ profile.name|default:"Muhammadrizo Sultonov" }}{% endblock %}
+
+{% block content %}
+<section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid gap-10 md:grid-cols-2">
+        <div data-aos="fade-right">
+            <h1 class="font-display text-4xl">{% trans "About me" %}</h1>
+            {% blocktrans asvar default_bio %}I am a backend developer. My main technologies are Python, Django, DRF, and FastAPI. I also know a bit of full-stack. I was born on August 10, 2006 in Uchkuprik district, Fergana region, and now live in Tashkent. My goal is to reach senior+ level.{% endblocktrans %}
+            <p class="mt-4 text-white/70">{{ profile.bio_i18n|default:default_bio }}</p>
+            {% if profile.cv %}
+                <a href="{{ profile.cv.url }}" class="mt-6 inline-block rounded-full bg-brand px-6 py-3 text-sm font-semibold text-black">{% trans "Download CV" %}</a>
+            {% else %}
+                <div class="mt-6 text-sm text-white/50">{% trans "Upload your CV at media/cv.pdf" %}</div>
+            {% endif %}
+        </div>
+        <div class="glass-card" data-aos="fade-left">
+            <h2 class="font-display text-xl">{% trans "Skills" %}</h2>
+            <div class="mt-4 space-y-3">
+                {% for skill in skills %}
+                    <div>
+                        <div class="flex justify-between text-sm">
+                            <span>{{ skill.name }}</span>
+                            <span>{{ skill.level }}%</span>
+                        </div>
+                        <div class="mt-1 h-2 rounded-full bg-white/10">
+                            <div class="h-2 rounded-full bg-brand" style="width: {{ skill.level }}%"></div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="text-white/60">{% trans "Add skills in the admin." %}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-14">
+        <h2 class="font-display text-2xl">{% trans "Timeline" %}</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+            {% for item in timeline %}
+                <div class="glass-card" data-aos="fade-up">
+                    <div class="text-sm text-brand">{{ item.get_type_display }}</div>
+                    <div class="mt-2 font-semibold">{{ item.title }}</div>
+                    <div class="text-sm text-white/60">{{ item.organization }}</div>
+                    <p class="mt-3 text-sm text-white/70">{{ item.description }}</p>
+                </div>
+            {% empty %}
+                <div class="text-white/60">{% trans "Add timeline entries in the admin." %}</div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

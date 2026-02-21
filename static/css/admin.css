@@ -1,0 +1,9 @@
+#header {
+    background: #0b1120;
+}
+#header h1 a {
+    color: #00e5ff;
+}
+.module h2, .module caption {
+    background: #111827;
+}
